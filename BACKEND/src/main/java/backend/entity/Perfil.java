@@ -14,23 +14,23 @@ public class Perfil {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name="altura", nullable = false)
+    @Column(name = "altura", nullable = false)
     private Integer altura;
-    @Column(name="peso", nullable = false)
+    @Column(name = "peso", nullable = false)
     private BigDecimal peso;
-    @Column(name="fecha_nacimiento", nullable = false)
+    @Column(name = "fecha_nacimiento", nullable = false)
     private LocalDate fechaNacimiento;
     @Enumerated(EnumType.STRING)
-    @Column(name="nivel_actividad", nullable = false)
+    @Column(name = "nivel_actividad", nullable = false)
     private Actividad nivelActividad;
     @Enumerated(EnumType.STRING)
-    @Column(name="sexo", nullable = false)
+    @Column(name = "sexo", nullable = false)
     private Sexo sexo;
     @Enumerated(EnumType.STRING)
-    @Column(name="objetivo", nullable = false)
+    @Column(name = "objetivo", nullable = false)
     private Objetivo objetivo;
     @OneToOne
-    @JoinColumn(name= "usuario_id", nullable = false, unique = true)
+    @JoinColumn(name = "usuario_id", nullable = false, unique = true)
     private Usuario usuario;
     @ManyToMany
     @JoinTable(name = "perfil_alergias", joinColumns = @JoinColumn(name = "perfil_id"), inverseJoinColumns = @JoinColumn(name = "alergia_id"))
@@ -39,79 +39,96 @@ public class Perfil {
     @JoinTable(name = "perfil_enfermedades", joinColumns = @JoinColumn(name = "perfil_id"), inverseJoinColumns = @JoinColumn(name = "enfermedad_id"))
     private Set<Enfermedad> enfermedades = new HashSet<>();
 
-// ---CONSTRUCTORES--- //
+    // ---CONSTRUCTORES--- //
 
-    public Perfil(){
-    }
-    public Perfil(Integer altura, BigDecimal peso, LocalDate fechaNacimiento, Actividad nivelActividad, Sexo sexo, Objetivo objetivo, Usuario usuario){
-        this.altura=altura;
-        this.peso=peso;
-        this.fechaNacimiento=fechaNacimiento;
-        this.nivelActividad=nivelActividad;
-        this.sexo=sexo;
-        this.objetivo=objetivo;
-        this.usuario=usuario;
+    public Perfil() {
     }
 
-// ---GETTERS--- //
+    public Perfil(Integer altura, BigDecimal peso, LocalDate fechaNacimiento, Actividad nivelActividad, Sexo sexo,
+            Objetivo objetivo, Usuario usuario) {
+        this.altura = altura;
+        this.peso = peso;
+        this.fechaNacimiento = fechaNacimiento;
+        this.nivelActividad = nivelActividad;
+        this.sexo = sexo;
+        this.objetivo = objetivo;
+        this.usuario = usuario;
+    }
 
-    public Long getId(){
+    // ---GETTERS--- //
+
+    public Long getId() {
         return id;
     }
-    public Integer getAltura(){
+
+    public Integer getAltura() {
         return altura;
     }
-    public BigDecimal getPeso(){
+
+    public BigDecimal getPeso() {
         return peso;
     }
-    public LocalDate getFechaNacimiento(){
+
+    public LocalDate getFechaNacimiento() {
         return fechaNacimiento;
     }
-    public Actividad getNivelActividad(){
+
+    public Actividad getNivelActividad() {
         return nivelActividad;
     }
-    public Sexo getSexo(){
+
+    public Sexo getSexo() {
         return sexo;
     }
-    public Objetivo getObjetivo(){
+
+    public Objetivo getObjetivo() {
         return objetivo;
     }
-    public Usuario getUsuario(){
+
+    public Usuario getUsuario() {
         return usuario;
     }
-    public Set<Alergia> getAlergias(){
+
+    public Set<Alergia> getAlergias() {
         return alergias;
     }
-    public Set<Enfermedad> getEnfermedades(){
+
+    public Set<Enfermedad> getEnfermedades() {
         return enfermedades;
     }
 
-// ---SETTERS--- //
+    // ---SETTERS--- //
 
-    public void setAltura(Integer altura){
-        this.altura=altura;
+    public void setAltura(Integer altura) {
+        this.altura = altura;
     }
-    public void setPeso(BigDecimal peso){
-        this.peso=peso;
+
+    public void setPeso(BigDecimal peso) {
+        this.peso = peso;
     }
-    public void setNivelActividad(Actividad nivelActividad){
-        this.nivelActividad=nivelActividad;
+
+    public void setNivelActividad(Actividad nivelActividad) {
+        this.nivelActividad = nivelActividad;
     }
-    public void setObjetivo(Objetivo objetivo){
-        this.objetivo=objetivo;
+
+    public void setObjetivo(Objetivo objetivo) {
+        this.objetivo = objetivo;
     }
-    public void agregarAlergia(Alergia alergia){
+
+    public void agregarAlergia(Alergia alergia) {
         this.alergias.add(alergia);
     }
-    public void eliminarAlergia(Alergia alergia){
+
+    public void eliminarAlergia(Alergia alergia) {
         this.alergias.remove(alergia);
     }
-    public void agregarEnfermedad(Enfermedad enfermedad){
+
+    public void agregarEnfermedad(Enfermedad enfermedad) {
         this.enfermedades.add(enfermedad);
     }
-    public void eliminarEnfermedad(Enfermedad enfermedad){
+
+    public void eliminarEnfermedad(Enfermedad enfermedad) {
         this.enfermedades.remove(enfermedad);
     }
-
 
 }

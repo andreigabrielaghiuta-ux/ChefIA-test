@@ -1,4 +1,5 @@
 package backend.entity;
+
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
@@ -8,7 +9,7 @@ import java.time.LocalDateTime;
 public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;    
+    private Long id;
     @Column(name = "nombre_usuario", nullable = false)
     private String nombre;
     @Column(name = "email_usuario", nullable = false, unique = true)
@@ -18,45 +19,51 @@ public class Usuario {
     @Column(name = "fecha_registro", nullable = false)
     private LocalDateTime fechaRegistro;
 
-// ---CONSTRUCTORES--- //
+    // ---CONSTRUCTORES--- //
 
-    public Usuario(){
+    public Usuario() {
     }
 
-    public Usuario(String nombre, String email, String passwordHash, LocalDateTime fechaRegistro){
-        this.nombre=nombre;
-        this.email=email;
-        this.passwordHash=passwordHash;
-        this.fechaRegistro=LocalDateTime.now();
+    public Usuario(String nombre, String email, String passwordHash, LocalDateTime fechaRegistro) {
+        this.nombre = nombre;
+        this.email = email;
+        this.passwordHash = passwordHash;
+        this.fechaRegistro = LocalDateTime.now();
     }
 
-// ---GETTERS--- //
+    // ---GETTERS--- //
 
-    public Long getId(){
+    public Long getId() {
         return id;
     }
-    public String getNombre(){
+
+    public String getNombre() {
         return nombre;
     }
-    public String getEmail(){
+
+    public String getEmail() {
         return email;
     }
-    public String getPasswordHash(){
+
+    public String getPasswordHash() {
         return passwordHash;
     }
-    public LocalDateTime getFechaRegistro(){
+
+    public LocalDateTime getFechaRegistro() {
         return fechaRegistro;
     }
 
-// ---SETTERS--- ///
+    // ---SETTERS--- ///
 
-    public void setNombre(String nombre){
-        this.nombre=nombre;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
-    public void setEmail(String email){
-        this.email=email;
+
+    public void setEmail(String email) {
+        this.email = email;
     }
-    public void setPasswordHash(String passwordHash){
-        this.passwordHash=passwordHash;
+
+    public void setPasswordHash(String passwordHash) {
+        this.passwordHash = passwordHash;
     }
 }

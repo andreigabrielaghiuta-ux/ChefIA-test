@@ -1,44 +1,49 @@
 package backend.entity;
 
 import jakarta.persistence.*;
+
 @Entity
 @Table(name = "alergias")
-public class Alergia  {
+public class Alergia {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name="nombre", nullable = false, length = 100, unique = true)
+    @Column(name = "nombre", nullable = false, length = 100, unique = true)
     private String nombre;
-    @Column(name="descripcion", length = 1000)
+    @Column(name = "descripcion", length = 1000)
     private String descripcion;
 
-// ---CONSTRUCTORES--- //
+    // ---CONSTRUCTORES--- //
 
-    public Alergia(){
-    }
-    public Alergia(String nombre, String descripcion){
-        this.nombre=nombre;
-        this.descripcion=descripcion;
+    public Alergia() {
     }
 
-// ---GETTERS--- //
+    public Alergia(String nombre, String descripcion) {
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+    }
 
-    public Long getId(){
+    // ---GETTERS--- //
+
+    public Long getId() {
         return id;
     }
-    public String getNombre(){
+
+    public String getNombre() {
         return nombre;
     }
-    public String getDescripcion(){
+
+    public String getDescripcion() {
         return descripcion;
     }
 
-// ---SETTERS--- //
+    // ---SETTERS--- //
 
-    public void setNombre(String nombre){
-        this.nombre=nombre;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
-    public void setDescripcion(String descripcion){
-        this.descripcion=descripcion;
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 }
